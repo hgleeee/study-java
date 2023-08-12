@@ -27,7 +27,7 @@ public class Main {
 - Thread 인스턴스의 정보와 ThreadLocal에 저장된 값을 출력하는 간단한 예제 코드이다.
 	- 하나는 main 메서드에서 실행되고 또 하나는 별도의 Thread 인스턴스를 만든 후 그 내부에서 출력하는 코드이다.
 
-<p align="center"><img src="../images/threadlocal_result.png" width="500"></p>
+<p align="center"><img src="../images/threadlocal_result.PNG" width="500"></p>
 
 - main 쓰레드에서 ThreadLocal 인스턴스에 "hello"라는 데이터를 저장 후 main 쓰레드에서 ThreadLocal 인스턴스에 저장된 값을 꺼내오면 정상적으로 반환되지만,
 	- main 쓰레드에서 생성된 또 하나의 쓰레드에서는 값이 null로 출력되는 걸 확인할 수 있다.
@@ -63,7 +63,7 @@ public class Main {
 
 - 위 코드와 로직은 동일하며 변수의 타입을 ThreadLocal이 아닌 InheritableThreadLocal로 변경하였다.
 
-<p align="center"><img src="../images/inheritable_threadlocal_result.png" width="500"></p>
+<p align="center"><img src="../images/inheritable_threadlocal_result.PNG" width="500"></p>
 
 - ThreadLocal과는 달리 InheritableThreadLocal에서는 main 쓰레드(상위 쓰레드)에 저장된 값을 하위 쓰레드에서도 정상적으로 값을 얻어온 걸 확인할 수 있다.
 	- 즉, 상위 쓰레드에서 생성된 값을 하위 쓰레드에도 공유가 되는 걸 알 수 있다.
@@ -113,7 +113,7 @@ class Child extends Thread {
 
 - 이번에는 childValue 메서드를 재정의하여 하위 쓰레드에서 값을 읽어올 때 상위 쓰레드에 있는 값이 아닌 임의의 값을 얻도록 하였다.
 
-<p align="center"><img src="../images/inheritable_threadlocal_result_1.png" width="500"></p>
+<p align="center"><img src="../images/inheritable_threadlocal_result_1.PNG" width="500"></p>
 
 - 결과는 의도한대로 출력되었다.
 
