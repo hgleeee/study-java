@@ -1,7 +1,7 @@
 # volatile 키워드
 
 ## 개요
-<p align="center"><img src="../images/multi_core_processor_struct.png" width="700"></p>
+<p align="center"><img src="../images/multi_core_processor_struct.png" width="600"></p>
 
 - 멀티 코어 프로세서는 각각의 코어가 별도의 캐시를 가지고 있다. 
 - 그리고 각각의 코어는 메모리에서 읽어온 값을 캐시에 저장하고 읽어서 작업을 수행하는데, 같은 값을 다시 읽을 때는 먼저 캐시를 확인 후 없을 때만 메모리에서 읽어온다. 
@@ -37,7 +37,7 @@ public class Volatile {
 - 그러나 실제로 실행하면 위 코드는 아래처럼 반복문을 오랜 시간 빠져 나오지 못하거나, 기타 다른 요인이 더 추가되면 영원히 못 나올 수도 있다.
 
 ## 가시성 문제가 발생한 원인과 해결 방법
-<p align="center"><img src="../images/volatile_1.png" width="700"></p>
+<p align="center"><img src="../images/volatile_1.png" width="500"></p>
 
 - CPU 1에서 수행된 스레드를 backgroundThread, CPU 2에서 수행된 스레드를 mainThread라고 하자.
 - mainThread는 CPU Cache Memory 2와 RAM에 공유 변수인 stopRequested를 true로 쓰기 작업을 완료하였으나, backgroundThread는 CPU Cache Memory 1에서 읽은 업데이트 되지 않은 stopRequested 값을 사용한다.
@@ -46,7 +46,7 @@ public class Volatile {
 - 이 문제를 해결하기 위해서는 stopRequested 변수를 volatile로 선언하면 된다.
   - 그렇게 되면 다음 그림과 같이 CPU Cache Memory를 거치지 않고, RAM으로 직접 읽고 쓰는 작업을 수행하게 된다.
 
-<p align="center"><img src="../images/volatile_2.png" width="700"></p>
+<p align="center"><img src="../images/volatile_2.png" width="500"></p>
  
 ## Volatile을 사용한 코드
 
